@@ -1,6 +1,9 @@
-print("Hello, I'm Gittie!")
+def introduce():
+    print("Hello, I'm Gittie!")
+    print("Eleoeleo")
 
-def joke:
+
+def joke():
     print("tell joke")
 def add():
     a=2
