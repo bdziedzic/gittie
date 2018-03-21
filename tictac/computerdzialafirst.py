@@ -65,7 +65,6 @@ def start():
     print("Hello! Tic tac toe, Let's go!")
     while starting not in choice:
         starting = input("Do you want to play? y/n : ").upper()
-        print(starting)
     if starting == "Y":
         multiplayer = input("Type 1 to single-player, type 2 to multi-player ")
         if multiplayer == "1":
@@ -88,24 +87,8 @@ def first(first_player):
             first_player = getkey().decode()
             while first_player not in lista:
                 first_player = input("Please press a number from 1 to 9")
-        if first_player == "1":
-            board[0] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "2":
-            board[1] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "3":
-            board[2] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "4":
-            board[3] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "5":
-            board[4] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "6":
-            board[5] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "7":
-            board[6] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "8":
-            board[7] = "\033[1;34m""x""\033[1;m"
-        elif first_player == "9":
-            board[8] = "\033[1;34m""x""\033[1;m"
+            while first_player in board:
+                board[int(first_player) - 1] = "\033[1;34m""x""\033[1;m"
            
 def second(second_player):    
     while second_player not in lista: 
@@ -120,25 +103,11 @@ def second(second_player):
             while second_player not in lista:
                 print("Please press a number from 1 to 9")
                 second_player = getkey().decode()
-        if second_player in board:
-            if second_player == "1":
-                board[0] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "2":
-                board[1] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "3":
-                board[2] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "4":
-                board[3] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "5":
-                board[4] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "6":
-                board[5] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "7":
-                board[6] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "8":
-                board[7] = "\033[1;31m""o""\033[1;m"
-            elif second_player == "9":
-                board[8] = "\033[1;31m""o""\033[1;m"
+            while second_player in board:
+                board[int(second_player) - 1] = "\033[1;31m""o""\033[1;m"
+                break
+
+            
 
 def computer(): 
     computer_choice = 1
@@ -150,9 +119,7 @@ def computer():
         elif computer_choice in board:
             time.sleep(2)
         while computer_choice in board:
-            print(computer_choice)
             board[int(computer_choice) - 1] = "\033[1;31m""o""\033[1;m"
-            print(board)
             break
         break
 
